@@ -88,10 +88,11 @@ var alkiStore = {
 //stores
 var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
 
+// populate and display the cookies data
 for (var iStores = 0; iStores < stores.length; iStores++) {
   console.log(stores[iStores]);
   stores[iStores].hourlySales = cookiesSales(stores[iStores].maxCustomers, stores[iStores].minCustomers, stores[iStores].avgCookies);
-  createElement('li', 'class', 'store-total', 'Total: ' + stores[iStores].totalSales + ' cookies',elements[iStores]);
+  createElement('li', 'class', 'store-total', 'Total: ' + stores[iStores].totalSales + ' cookies', elements[iStores]);
 }
 //
 // console.log(pikeStore);
