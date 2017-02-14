@@ -9,17 +9,20 @@ var hillEl = document.getElementById('hill-store');
 var alkiEl = document.getElementById('alki-store');
 var elements = [pikeEl, airportEl, centerEl, hillEl, alkiEl];
 
-// simple element creation, may be a constructor
-function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent, sectionId) {
+// simple element creation
+function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent, parentNode) {
   var element = document.createElement(tagType);
   element.setAttribute(tagIdentifier, tagIdentifierName);
   element.textContent = elementContent;
   console.log(element);
   //give the Child to the Dom
-  sectionId.appendChild(element);
+  parentNode.appendChild(element);
 }
 
-//createElement('p', 'id', 'addedContent', 'Hello User', sectionEl);
+//createElement('p', 'id', 'myCustomId', 'Hello User', sectionEl);
+//<section id = "sectionEl">
+  //<p id = "myCustomId">Hello User</p>
+//</section>
 //createElement('h1', 'class', 'headding-one', 'It Lives!', divEl[0]);
 
 //Customers per hour
@@ -53,6 +56,7 @@ function cookiesSales(maxCustomers, minCustomers, avgCookies) {
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 //Store Projected Data
+//First and Pike Store
 var pikeStore = {
   minCustomers: 23,
   maxCustomers: 65,
@@ -72,6 +76,7 @@ var pikeStore = {
   }
 };
 
+// SeaTac Airport Store
 var airportStore = {
   minCustomers: 3,
   maxCustomers: 24,
@@ -91,6 +96,7 @@ var airportStore = {
   }
 };
 
+// Seattle Center Store
 var centerStore = {
   minCustomers: 11,
   maxCustomers: 38,
@@ -110,6 +116,7 @@ var centerStore = {
   }
 };
 
+// Seattle Center Store
 var hillStore = {
   minCustomers: 20,
   maxCustomers: 38,
@@ -129,6 +136,7 @@ var hillStore = {
   }
 };
 
+// Alki Store
 var alkiStore = {
   minCustomers: 2,
   maxCustomers: 16,
@@ -147,7 +155,8 @@ var alkiStore = {
     }
   }
 };
-//stores
+
+//stores output
 var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
 for (var iStores = 0; iStores < stores.length; iStores++) {
   stores[iStores].cookieSales();
