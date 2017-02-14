@@ -34,6 +34,7 @@ function cookiesSoldThisHour(customers, avgCookies) {
 }
 
 //function to populate array Data
+/*
 function cookiesSales(maxCustomers, minCustomers, avgCookies) {
   var hourlySales = [];
   for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
@@ -46,6 +47,7 @@ function cookiesSales(maxCustomers, minCustomers, avgCookies) {
   }
   return hourlySales;
 }
+*/
 
 // hours of operation
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
@@ -55,48 +57,113 @@ var pikeStore = {
   minCustomers: 23,
   maxCustomers: 65,
   avgCookies: 6.3,
-  totalSales: 0
+  totalSales: 0,
+  hourlySales: [],
+  cookieSales: function() {
+    for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+      var customers = customersThisHour(this.maxCustomers, this.minCustomers);
+      var sales = cookiesSoldThisHour(customers, this.avgCookies);
+      this.totalSales += sales;
+      console.log(this.totalSales);
+      // console.log(hoursOpen[iHours] + ': ' + sales + ' cookies.');
+      createElement('li', 'class', 'hourly-sales', hoursOpen[iHours] + ': ' + sales + ' cookies.', elements[iStores]);
+      this.hourlySales.push(sales);
+    }
+  }
 };
 
 var airportStore = {
   minCustomers: 3,
   maxCustomers: 24,
   avgCookies: 1.2,
-  totalSales: 0
+  totalSales: 0,
+  hourlySales: [],
+  cookieSales: function() {
+    for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+      var customers = customersThisHour(this.maxCustomers, this.minCustomers);
+      var sales = cookiesSoldThisHour(customers, this.avgCookies);
+      this.totalSales += sales;
+      console.log(this.totalSales);
+      // console.log(hoursOpen[iHours] + ': ' + sales + ' cookies.');
+      createElement('li', 'class', 'hourly-sales', hoursOpen[iHours] + ': ' + sales + ' cookies.', elements[iStores]);
+      this.hourlySales.push(sales);
+    }
+  }
 };
 
 var centerStore = {
   minCustomers: 11,
   maxCustomers: 38,
   avgCookies: 3.7,
-  totalSales: 0
+  totalSales: 0,
+  hourlySales: [],
+  cookieSales: function() {
+    for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+      var customers = customersThisHour(this.maxCustomers, this.minCustomers);
+      var sales = cookiesSoldThisHour(customers, this.avgCookies);
+      this.totalSales += sales;
+      console.log(this.totalSales);
+      // console.log(hoursOpen[iHours] + ': ' + sales + ' cookies.');
+      createElement('li', 'class', 'hourly-sales', hoursOpen[iHours] + ': ' + sales + ' cookies.', elements[iStores]);
+      this.hourlySales.push(sales);
+    }
+  }
 };
 
 var hillStore = {
   minCustomers: 20,
   maxCustomers: 38,
   avgCookies: 2.3,
-  totalSales: 0
+  totalSales: 0,
+  hourlySales: [],
+  cookieSales: function() {
+    for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+      var customers = customersThisHour(this.maxCustomers, this.minCustomers);
+      var sales = cookiesSoldThisHour(customers, this.avgCookies);
+      this.totalSales += sales;
+      console.log(this.totalSales);
+      // console.log(hoursOpen[iHours] + ': ' + sales + ' cookies.');
+      createElement('li', 'class', 'hourly-sales', hoursOpen[iHours] + ': ' + sales + ' cookies.', elements[iStores]);
+      this.hourlySales.push(sales);
+    }
+  }
 };
 
 var alkiStore = {
   minCustomers: 2,
   maxCustomers: 16,
   avgCookies: 4.6,
-  totalSales: 0
+  totalSales: 0,
+  hourlySales: [],
+  cookieSales: function() {
+    for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+      var customers = customersThisHour(this.maxCustomers, this.minCustomers);
+      var sales = cookiesSoldThisHour(customers, this.avgCookies);
+      this.totalSales += sales;
+      console.log(this.totalSales);
+      // console.log(hoursOpen[iHours] + ': ' + sales + ' cookies.');
+      createElement('li', 'class', 'hourly-sales', hoursOpen[iHours] + ': ' + sales + ' cookies.', elements[iStores]);
+      this.hourlySales.push(sales);
+    }
+  }
 };
 //stores
 var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
-
+for (var iStores = 0; iStores < stores.length; iStores++) {
+  stores[iStores].cookieSales();
+  createElement('li', 'class', 'store-total', 'Total: ' + stores[iStores].totalSales + ' cookies', elements[iStores]);
+}
 // populate and display the cookies data
+/*
 for (var iStores = 0; iStores < stores.length; iStores++) {
   console.log(stores[iStores]);
   stores[iStores].hourlySales = cookiesSales(stores[iStores].maxCustomers, stores[iStores].minCustomers, stores[iStores].avgCookies);
   createElement('li', 'class', 'store-total', 'Total: ' + stores[iStores].totalSales + ' cookies', elements[iStores]);
 }
+*/
 //
-// console.log(pikeStore);
-// console.log(airportStore);
-// console.log(centerStore);
-// console.log(hillStore);
-// console.log(alkiStore);
+console.log(pikeStore);
+console.log(airportStore);
+console.log(centerStore);
+console.log(hillStore);
+console.log(alkiStore);
