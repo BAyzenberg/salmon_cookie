@@ -20,6 +20,7 @@ function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent
   console.log(element);
   //give the Child to the Dom
   parentNode.appendChild(element);
+  return element;
 }
 
 //createElement('p', 'id', 'myCustomId', 'Hello User', sectionEl);
@@ -91,8 +92,9 @@ var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
 
 for (var iStores = 0; iStores < stores.length; iStores++) {
   console.log(stores[iStores]);
-  createElement('tr', 'id', stores[iStores].tag, stores[iStores].name, tableEl);
-  for (var iHours; iHours < hoursOpen.length; iHours++) {
-    console.log('test');
+  var rowParent = createElement('tr', 'id', stores[iStores].tag, stores[iStores].name, tableEl);
+  for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+    createElement('td', 'class', 'table-data', stores[iStores].hourlySales[iHours], rowParent);
   }
+  createElement('td', 'class', 'table-data', stores[iStores].totalSales, rowParent);
 }
