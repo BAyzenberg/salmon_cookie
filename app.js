@@ -39,6 +39,7 @@ function cookiesSales(maxCustomers, minCustomers, avgCookies) {
   for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
     var customers = customersThisHour(maxCustomers, minCustomers);
     var sales = cookiesSoldThisHour(customers, avgCookies);
+    stores[iStores].totalSales += sales;
     console.log(hoursOpen[iHours] + ': ' + sales + ' cookies.');
     createElement('li', 'class', 'hourly-sales', hoursOpen[iHours] + ': ' + sales + ' cookies.', elements[iStores]);
     hourlySales.push(sales);
@@ -53,31 +54,36 @@ var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm
 var pikeStore = {
   minCustomers: 23,
   maxCustomers: 65,
-  avgCookies: 6.3
+  avgCookies: 6.3,
+  totalSales: 0
 };
 
 var airportStore = {
   minCustomers: 3,
   maxCustomers: 24,
-  avgCookies: 1.2
+  avgCookies: 1.2,
+  totalSales: 0
 };
 
 var centerStore = {
   minCustomers: 11,
   maxCustomers: 38,
-  avgCookies: 3.7
+  avgCookies: 3.7,
+  totalSales: 0
 };
 
 var hillStore = {
   minCustomers: 20,
   maxCustomers: 38,
-  avgCookies: 2.3
+  avgCookies: 2.3,
+  totalSales: 0
 };
 
 var alkiStore = {
   minCustomers: 2,
   maxCustomers: 16,
-  avgCookies: 4.6
+  avgCookies: 4.6,
+  totalSales: 0
 };
 //stores
 var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
@@ -85,6 +91,7 @@ var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
 for (var iStores = 0; iStores < stores.length; iStores++) {
   console.log(stores[iStores]);
   stores[iStores].hourlySales = cookiesSales(stores[iStores].maxCustomers, stores[iStores].minCustomers, stores[iStores].avgCookies);
+  createElement('li', 'class', 'store-total', 'Total: ' + stores[iStores].totalSales + ' cookies',elements[iStores]);
 }
 //
 // console.log(pikeStore);
