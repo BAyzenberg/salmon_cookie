@@ -9,7 +9,7 @@
 // var alkiEl = document.getElementById('alki-store');
 // var elements = [pikeEl, airportEl, centerEl, hillEl, alkiEl];
 
-// table ID
+// table HTML Node
 var tableEl = document.getElementById('store-data');
 
 // simple element creation
@@ -64,9 +64,9 @@ CookieStore.prototype.populateCookieStore = function () {
 };
 
 function NewStore(name, minCustomers, maxCustomers, avgCookies, tagId){
-  var temp = new CookieStore(name, minCustomers, maxCustomers, avgCookies, tagId);
-  temp.populateCookieStore();
-  return temp;
+  var tempStore = new CookieStore(name, minCustomers, maxCustomers, avgCookies, tagId);
+  tempStore.populateCookieStore();
+  return tempStore;
 }
 
 //var g = new CookieStore('First and Pike', 23, 65, 6.3);
@@ -114,6 +114,7 @@ function makeTableFoot() {
   createElement('td', 'id', 'grand-total', grandTotal, footParent);
 }
 
+/*
 function makeTableBody() {
   for (var iStores = 0; iStores < stores.length; iStores++) {
     console.log(stores[iStores]);
@@ -130,3 +131,38 @@ function makeTable() {
   makeTableBody();
   makeTableFoot();
 }
+*/
+
+makeTableHead();
+
+var pikeParent = createElement('tr', 'id', pikeStore.tag, pikeStore.name, tableEl);
+for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+  createElement('td', 'class', 'table-data', pikeStore.hourlySales[iHours], pikeParent);
+}
+createElement('td', 'class', 'table-data', pikeStore.totalSales, pikeParent);
+
+var airportParent = createElement('tr', 'id', airportStore.tag, airportStore.name, tableEl);
+for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+  createElement('td', 'class', 'table-data', airportStore.hourlySales[iHours], airportParent);
+}
+createElement('td', 'class', 'table-data', airportStore.totalSales, airportParent);
+
+var centerParent = createElement('tr', 'id', centerStore.tag, centerStore.name, tableEl);
+for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+  createElement('td', 'class', 'table-data', centerStore.hourlySales[iHours], centerParent);
+}
+createElement('td', 'class', 'table-data', centerStore.totalSales, centerParent);
+
+var hillParent = createElement('tr', 'id', hillStore.tag, hillStore.name, tableEl);
+for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+  createElement('td', 'class', 'table-data', hillStore.hourlySales[iHours], hillParent);
+}
+createElement('td', 'class', 'table-data', hillStore.totalSales, hillParent);
+
+var alkiParent = createElement('tr', 'id', alkiStore.tag, alkiStore.name, tableEl);
+for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+  createElement('td', 'class', 'table-data', alkiStore.hourlySales[iHours], alkiParent);
+}
+createElement('td', 'class', 'table-data', alkiStore.totalSales, alkiParent);
+
+makeTableFoot();
