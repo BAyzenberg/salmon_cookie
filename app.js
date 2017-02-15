@@ -114,15 +114,19 @@ function makeTableFoot() {
   createElement('td', 'id', 'grand-total', grandTotal, footParent);
 }
 
-makeTableHead();
-
-for (var iStores = 0; iStores < stores.length; iStores++) {
-  console.log(stores[iStores]);
-  var rowParent = createElement('tr', 'id', stores[iStores].tag, stores[iStores].name, tableEl);
-  for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
-    createElement('td', 'class', 'table-data', stores[iStores].hourlySales[iHours], rowParent);
+function makeTableBody() {
+  for (var iStores = 0; iStores < stores.length; iStores++) {
+    console.log(stores[iStores]);
+    var rowParent = createElement('tr', 'id', stores[iStores].tag, stores[iStores].name, tableEl);
+    for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
+      createElement('td', 'class', 'table-data', stores[iStores].hourlySales[iHours], rowParent);
+    }
+    createElement('td', 'class', 'table-data', stores[iStores].totalSales, rowParent);
   }
-  createElement('td', 'class', 'table-data', stores[iStores].totalSales, rowParent);
 }
 
-makeTableFoot();
+function makeTable() {
+  makeTableHead();
+  makeTableBody();
+  makeTableFoot();
+}
