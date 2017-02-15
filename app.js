@@ -90,6 +90,32 @@ var alkiStore = NewStore('Alki Store', 2, 16, 4.6, 'alki-store');
 var stores = [pikeStore, airportStore, centerStore, hillStore, alkiStore];
 // populate and display the cookies data
 
+//produce headder
+function makeTableHead() {
+  var headParent = createElement('thead', 'id', 'table-head', 'Hours', tableEl);
+  for (var iHead = 0; iHead < hoursOpen.length; iHead++) {
+    createElement('th', 'class', 'time-indicator', hoursOpen[iHead], headParent);
+  }
+  createElement('th', 'id', 'totals', 'Total', headParent);
+}
+
+//produce footer
+function makeTableFoot() {
+  var footParent = createElement('tfoot', 'id', 'table-foot', 'Totals', tableEl);
+  var grandTotal = 0;
+  for (var iFoot = 0; iFoot < hoursOpen.length; iFoot++) {
+    var hourlyTotal = 0;
+    for (var iSubtotal = 0; iSubtotal < stores.length; iSubtotal++) {
+      hourlyTotal += stores[iSubtotal].hourlySales[iFoot];
+      grandTotal += stores[iSubtotal].hourlySales[iFoot];
+    }
+    createElement('td', 'class', 'hourly-totals', hourlyTotal, footParent);
+  }
+  createElement('td', 'id', 'grand-total', grandTotal, footParent);
+}
+
+makeTableHead();
+
 for (var iStores = 0; iStores < stores.length; iStores++) {
   console.log(stores[iStores]);
   var rowParent = createElement('tr', 'id', stores[iStores].tag, stores[iStores].name, tableEl);
@@ -98,3 +124,5 @@ for (var iStores = 0; iStores < stores.length; iStores++) {
   }
   createElement('td', 'class', 'table-data', stores[iStores].totalSales, rowParent);
 }
+
+makeTableFoot();
