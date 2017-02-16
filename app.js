@@ -21,7 +21,7 @@ function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent
 //createElement('h1', 'class', 'headding-one', 'It Lives!', divEl[0]);
 
 // hours of operation
-var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function CookieStore(name, minCustomers, maxCustomers, avgCookies, tagId){
   this.name = name;
@@ -105,7 +105,7 @@ CookieStore.prototype.makeTableRow = function() {
   for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
     createElement('td', 'class', 'table-data', this.hourlySales[iHours], rowParent);
   }
-  createElement('td', 'class', 'table-data', this.totalSales, rowParent);
+  createElement('td', 'class', 'daily-totals', this.totalSales, rowParent);
 };
 
 function makeTable() {
@@ -132,6 +132,8 @@ function pressSubmit(event){
   var avgCookies = parseFloat(event.target.avgCookies.value);
   var tagNew = event.target.tag.value;
 
+  console.log(minCustomers);
+  console.log(maxCustomers);
   var store = NewStore(nameNew, minCustomers, maxCustomers, avgCookies, tagNew);
 
   console.log(store);

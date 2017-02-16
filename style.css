@@ -4,16 +4,55 @@ h1 {
   height: 400px;
 }
 
-.table-data {
-
+#home-button {
+  width: 125px;
+  margin-top: 50px;
+  margin: auto;
 }
 
-thead, tr, tfoot {
+#grand-total, .hourly-totals, .daily-totals{
+  font-weight: bold;
+}
+
+h2 {
+  width: 250px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+table {
+  border: solid;
+  border-width: thick;
+  width: 800px;
+  margin: auto;
+}
+
+fieldset {
+  width: 200px;
+  margin:auto;
+  border-radius: 15px;
+}
+
+legend {
+  margin: auto;
+}
+
+label, input{
+  display: block;
+}
+
+
+thead, tr, tfoot, th{
   font-size: 18px;
-  border: 2px
+  border: solid;
+  border-width: thick;
+  border-radius: 1px;
 }
 
 td {
   font-size: 16px;
-  border: 1px;
+  border: solid;
+  margin: 0;
+  border-width: thin;
+  border-radius: 1px;
 }
