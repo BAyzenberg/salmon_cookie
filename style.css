@@ -1,7 +1,14 @@
-h1 {
+#main-page {
   background-image: url(https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true);
   width: auto;
   height: 400px;
+}
+
+h1 {
+  width: 250px;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 #home-button {
@@ -25,6 +32,7 @@ table {
   border-width: thick;
   width: 800px;
   margin: auto;
+  margin-bottom: 35px;
 }
 
 fieldset {
