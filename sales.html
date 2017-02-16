@@ -6,7 +6,28 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h2>Individaul Store Data</h2>
+    <div class="form">
+      <form id= "new-store-form">
+        <fieldset>
+          <legend>Add Another Cookie Store!</legend>
+          <label for="name">Cookie Store Name:</label>
+          <input type="text" name="name" value="">
+           <!-- name of input camel cased -->
+           <!-- input type= is an attribute -->
+  <!-- js input class id = input "text" > "location" -->
+          <label for="minCustomers">Minimum Customers/Hour:</label>
+          <input type="number" name="minCustomers">
+          <label for="maxCustomers">Maximum Customers/Hour:</label>
+          <input type="number" name="maxCustomers">
+          <label for="avgCookies">Average Cookies/Customer:</label>
+          <input type="text" name="avgCookies">
+          <label for="tag">Input a quick location-store:</label>
+          <input type="text" name="tag" value="street-store">
+          <button type="submit" name="button">SUBMIT</button>
+        </fieldset>
+      </form>
+    </div>
+    <h2>Individual Store Data</h2>
     <table id = "store-data">
 
     </table>

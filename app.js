@@ -17,7 +17,7 @@ function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent
   var element = document.createElement(tagType);
   element.setAttribute(tagIdentifier, tagIdentifierName);
   element.textContent = elementContent;
-  console.log(element);
+  // console.log(element);
   //give the Child to the Dom
   parentNode.appendChild(element);
   return element;
@@ -30,15 +30,17 @@ function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent
 //createElement('h1', 'class', 'headding-one', 'It Lives!', divEl[0]);
 
 //Customers per hour
-function customersThisHour(maxCustomers, minCustomers) {
-  var range = maxCustomers - minCustomers + 1;
-  return Math.floor(Math.random() * range) + minCustomers;
-}
-
-// Cookies sold this hour
-function cookiesSoldThisHour(customers, avgCookies) {
-  return Math.floor(customers * avgCookies);
-}
+// function customersThisHour(maxCustomers, minCustomers) {
+//   var range = maxCustomers - minCustomers + 1;
+//   console.log(maxCustomers);
+//   return Math.floor(Math.random() * range) + minCustomers;
+// }
+//
+// // Cookies sold this hour
+// function cookiesSoldThisHour(customers, avgCookies) {
+//   console.log(customers);
+//   return Math.floor(customers * avgCookies);
+// }
 
 // hours of operation
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
@@ -55,8 +57,13 @@ function CookieStore(name, minCustomers, maxCustomers, avgCookies, tagId){
 
 CookieStore.prototype.populateCookieStore = function () {
   for (var iHours = 0; iHours < hoursOpen.length; iHours++) {
-    var customers = customersThisHour(this.maxCustomers, this.minCustomers);
-    var sales = cookiesSoldThisHour(customers, this.avgCookies);
+    var range = this.maxCustomers - this.minCustomers + 1;
+    console.log(this.maxCustomers);
+    var customers = Math.floor(Math.random() * range) + this.minCustomers;
+
+    // Cookies sold this hour
+    console.log(customers);
+    var sales = Math.floor(customers * this.avgCookies);
     this.totalSales += sales;
 //    console.log(this.totalSales);
     this.hourlySales.push(sales);
@@ -150,3 +157,53 @@ function makeTable() {
 }
 
 makeTable();
+
+var storeFormEl = document.getElementById('new-store-form');
+
+storeFormEl.addEventListener('submit', pressSubmit);
+
+function pressSubmit(event){
+  event.preventDefault();
+  event.stopPropagation();
+
+  var nameNew = event.target.name.value;
+  var minCustomersNew = event.target.minCustomers.value;
+  var maxCustomersNew = event.target.maxCustomers.value;
+  var avgCookiesNew = parseFloat(event.target.avgCookies.value);
+  var tagNew = event.target.tag.value;
+
+  NewStore(nameNew, event.target.minCustomers.value, event.target.maxCustomers.value, avgCookiesNew, tagNew);
+
+  console.log(NewStore);
+
+  while (tableEl.hasChildNodes()) {
+    tableEl.removeChild(tableEl.firstChild);
+  }
+  makeTable();
+};
+
+// var storeFormEl = document.getElementById('new-store-form');
+//
+// storeFormEl.addEventListener('submit', handleSubmit);
+// // submit states kind of event listener
+// //2nd attribute is function to handle input
+//
+// function handleSubmit(event){ //function in storeFormEl.addEventListener('submit', handleSubmit());
+//   // not sure what event does
+//   // target = object event was applied to
+//   event.preventDefault(); //preventDefault will prevent the default browser behavior
+//   event.stopPropagation();
+//
+//   var location = event.target.cookieStoreName.value;
+//   var minCustomers = parseInt(event.target.minCustomers.value);
+//   // parseInt converts string to number
+//   var maxCustomers = parseInt(event.target.maxCustomers.value);
+//   // var avgCookies = //parseInt will not work with floating value
+//   // float = numeric value with a decimal
+//
+//   var store = new CookieStore(location, minCustomers, maxCustomers, avgCookies);
+//
+//   stores.push(store); //push new store to array
+//
+//   console.log('User submitted using Submit Button');
+// }
