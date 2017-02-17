@@ -10,7 +10,7 @@ p {
 }
 
 headder h1 {
-  width: 35%;
+  width: 300px;
   margin: auto;
 }
 
@@ -84,4 +84,9 @@ td {
 
 table {
   background-color: #c7dda8
+}
+
+.nav-bar ul li {
+  display: inline-block;
+  width: 30%;
 }
