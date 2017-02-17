@@ -1,19 +1,92 @@
-h1 {
-  background-image: url(https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true);
-  width: auto;
-  height: 400px;
+body {
+  background-color: #d73a8a;
 }
 
-.table-data {
-
+p {
+  font-size: 20px;
+  width: 65%;
+  margin: auto;
+  margin-top: 14px;
 }
 
-thead, tr, tfoot {
+headder h1 {
+  width: 300px;
+  margin: auto;
+}
+
+headder img {
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+}
+
+.pat {
+  width: 250px;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+#home-button {
+  width: 125px;
+  margin-top: 50px;
+  margin: auto;
+}
+
+#grand-total, .hourly-totals, .daily-totals{
+  font-weight: bold;
+}
+
+h2 {
+  width: 250px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+table {
+  border: solid;
+  border-width: thick;
+  width: 800px;
+  margin: auto;
+  margin-bottom: 35px;
+}
+
+fieldset {
+  width: 200px;
+  margin:auto;
+  border-radius: 15px;
+  background-color: #6c64cc
+}
+
+legend {
+  margin: auto;
+}
+
+label, input{
+  display: block;
+}
+
+
+thead, tr, tfoot, th{
   font-size: 18px;
-  border: 2px
+  border: solid;
+  border-width: thick;
+  border-radius: 1px;
 }
 
 td {
   font-size: 16px;
-  border: 1px;
+  border: solid;
+  margin: 0;
+  border-width: thin;
+  border-radius: 1px;
+}
+
+table {
+  background-color: #c7dda8
+}
+
+.nav-bar ul li {
+  display: inline-block;
+  width: 30%;
 }

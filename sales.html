@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="nav-bar">
+      <ul>
+        <li>Home</li>
+        <li>Stores</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+    <h1 class = "pat">Hello Pat<br/>
+    Here is your Data</h1>
     <div class="form">
       <form id= "new-store-form">
         <fieldset>
@@ -13,9 +22,9 @@
           <label for="name">Cookie Store Name:</label>
           <input type="text" name="name" value="">
           <label for="minCustomers">Minimum Customers/Hour:</label>
-          <input type="text" name="minCustomers">
+          <input type="text" min = "0" name="minCustomers">
           <label for="maxCustomers">Maximum Customers/Hour:</label>
-          <input type="text" name="maxCustomers">
+          <input type="text" min = minCustomers name="maxCustomers">
           <label for="avgCookies">Average Cookies/Customer:</label>
           <input type="text" name="avgCookies">
           <label for="tag">Input a quick location-store:</label>
@@ -28,6 +37,7 @@
     <table id = "store-data">
 
     </table>
+    <button id = "home-button" type="button" name="home">To the Homepage</button>
     <script src="app.js" type="text/javascript"></script>
   </body>
 </html>
