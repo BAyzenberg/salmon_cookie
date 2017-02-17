@@ -1,14 +1,26 @@
-#main-page {
-  background-image: url(https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true);
-  width: auto;
-  height: 400px;
-}
-
 body {
   background-color: #d73a8a;
 }
 
-h1 {
+p {
+  font-size: 20px;
+  width: 65%;
+  margin: auto;
+  margin-top: 14px;
+}
+
+headder h1 {
+  width: 35%;
+  margin: auto;
+}
+
+headder img {
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+}
+
+.pat {
   width: 250px;
   margin: auto;
   margin-top: 5%;
