@@ -116,6 +116,7 @@ function makeTable() {
   makeTableFoot();
 }
 
+// Destroy the table
 function burninateTheTable() {
   while (tableEl.hasChildNodes()) {
     tableEl.removeChild(tableEl.firstChild);
