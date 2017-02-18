@@ -30,12 +30,12 @@ h3 {
 }
 
 
-headder h1 {
+header h1 {
   width: 300px;
   margin: auto;
 }
 
-headder img {
+header img {
   width: 50%;
   height: auto;
   margin-left: 25%;
