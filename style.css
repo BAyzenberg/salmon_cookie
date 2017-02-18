@@ -1,5 +1,7 @@
 body {
-  background-color: #d73a8a;
+  background-image: url(seattle.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 p {
@@ -8,6 +10,25 @@ p {
   margin: auto;
   margin-top: 14px;
 }
+
+h3 {
+  margin: auto;
+  margin-top: 40px;
+}
+
+.store-locations {
+  background-color: #34ba2d;
+  width: 400px;
+  margin: auto;
+}
+
+.main-content {
+  background-color: #e599a6;
+  width: 660px;
+  margin: auto;
+  border: solid;
+}
+
 
 headder h1 {
   width: 300px;
@@ -24,7 +45,7 @@ headder img {
   width: 250px;
   margin: auto;
   margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 4%;
 }
 
 #home-button {
@@ -41,6 +62,8 @@ h2 {
   width: 250px;
   margin: auto;
   margin-top: 50px;
+  color: #c9a414;
+  background-color: #052452;
 }
 
 table {
@@ -60,6 +83,7 @@ fieldset {
 
 legend {
   margin: auto;
+  font-weight: bold;
 }
 
 label, input{
@@ -88,5 +112,8 @@ table {
 
 .nav-bar ul li {
   display: inline-block;
-  width: 30%;
+  width: 23%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 24px;
 }

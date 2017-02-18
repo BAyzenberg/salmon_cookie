@@ -116,6 +116,13 @@ function makeTable() {
   makeTableFoot();
 }
 
+// Destroy the table
+function burninateTheTable() {
+  while (tableEl.hasChildNodes()) {
+    tableEl.removeChild(tableEl.firstChild);
+  }
+}
+
 makeTable();
 
 var storeFormEl = document.getElementById('new-store-form');
@@ -138,8 +145,6 @@ function pressSubmit(event){
 
   console.log(store);
 
-  while (tableEl.hasChildNodes()) {
-    tableEl.removeChild(tableEl.firstChild);
-  }
+  burninateTheTable();
   makeTable();
 };
